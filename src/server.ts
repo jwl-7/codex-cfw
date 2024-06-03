@@ -11,7 +11,7 @@ export interface IEnv {
 
 const router = Router()
 
-export const server = {
+const server = {
     verifyDiscordRequest: verifyDiscordRequest,
     fetch: router.fetch
 }
@@ -77,3 +77,6 @@ router.post('/', async (request, env) => {
 })
 
 router.all('*', () => new Response('Not Found.', { status: 404 }))
+
+
+export default server
