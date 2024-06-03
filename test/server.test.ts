@@ -1,8 +1,8 @@
 import { expect } from 'chai'
 import { describe, it, beforeEach, afterEach } from 'mocha'
 import { InteractionResponseType, InteractionType } from 'discord-interactions'
-import sinon from 'sinon'
-import server from '../src/server'
+import sinon, { SinonStub } from 'sinon'
+import { server } from '../src/server'
 
 
 describe('Server', () => {
@@ -23,7 +23,7 @@ describe('Server', () => {
     })
 
     describe('POST /', () => {
-        let verifyDiscordRequestStub: any
+        let verifyDiscordRequestStub: SinonStub
 
         beforeEach(() => {
             verifyDiscordRequestStub = sinon.stub(server, 'verifyDiscordRequest')

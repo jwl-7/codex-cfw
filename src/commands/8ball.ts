@@ -1,4 +1,3 @@
-import { JsonResponse } from '@/utils'
 import { InteractionResponseType } from 'discord-interactions'
 
 
