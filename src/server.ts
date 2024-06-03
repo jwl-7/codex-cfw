@@ -3,8 +3,8 @@ import { InteractionType, InteractionResponseType, verifyKey } from 'discord-int
 import { commands } from '@/commands'
 
 
-interface RequestEnv {
-    DISCORD_PUBLIC_KEY: string
+interface IEnv {
+    DISCORD_APPLICATION_ID: string
     [key: string]: any
 }
 
@@ -78,4 +78,4 @@ router.post('/', async (request, env) => {
 router.all('*', () => new Response('Not Found.', { status: 404 }))
 
 
-export { server }
+export { server, IEnv }
