@@ -1,4 +1,4 @@
-import { IRequest } from 'itty-router'
+import { IRequest, RequestLike } from 'itty-router'
 import { verifyKey } from 'discord-interactions'
 
 
@@ -10,7 +10,7 @@ export interface IEnv {
 
 export interface IServer {
     verifyDiscordRequest: typeof verifyDiscordRequest,
-    fetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>
+    fetch: <A extends any[]>(request: RequestLike, ...extra: A) => Promise<Response>
 }
 
 export class JsonResponse extends Response {
