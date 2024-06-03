@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import { describe, it, beforeEach, afterEach } from 'mocha'
 import { InteractionResponseType, InteractionType } from 'discord-interactions'
 import sinon, { SinonStub } from 'sinon'
-import { server, IEnv } from '../src/server'
+import server, { IEnv } from '../src/server'
 
 
 describe('Server', () => {
