@@ -1,4 +1,4 @@
-import { InteractionResponseType } from 'discord-interactions'
+import { InteractionType, InteractionResponseType } from 'discord-interactions'
 import { getRandomElement } from '@/utils/utils'
 
 
@@ -29,12 +29,31 @@ const responses = [
 export const EIGHTBALL_COMMAND = {
     name: '8ball',
     description: 'Ask the Magic 8-Ball a question.',
-    run: async () => {
+    run: async (interaction: InteractionType.APPLICATION_COMMAND) => {
         const fortune = getRandomElement(responses)
+        const purple = 10181046
+        // return {
+        //     type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        //     data: {
+        //         content: `🎱 **Magic 8-Ball says:** ${fortune}`,
+        //     },
+        // }
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {
                 content: `🎱 **Magic 8-Ball says:** ${fortune}`,
+                embeds: [{
+                    title: 'shitty fortune',
+                    author: {
+                        name: 'Magic 8-ball',
+                        icon_url: 'https://i.imgur.com/XhNqADi.png',
+                        color: purple
+                    },
+                    fields: [{
+                        name: `*${interaction.user.name}, your fortune says...*`,
+                        value: `**${fortune}**`
+                    }]
+                }]
             },
         }
     },
