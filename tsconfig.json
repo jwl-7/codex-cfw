@@ -14,9 +14,11 @@
         "paths": {
             "@/*": ["src/*"],
             "@commands/*": ["src/commands/*"],
-            "@test/*": ["test/*"]
+            "@server/*": ["src/server/*"],
+            "@test/*": ["test/*"],
+            "@utils/*": ["src/utils/*"]
         }
     },
-    "include": ["src"],
-    "exclude": ["node_modules", "dist", "test"]
+    "include": ["src", "test"],
+    "exclude": ["node_modules", "dist"]
 }

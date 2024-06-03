@@ -1,4 +1,5 @@
 import { InteractionResponseType } from 'discord-interactions'
+import { getRandomElement } from '@/utils/utils'
 
 
 const responses = [
@@ -25,15 +26,11 @@ const responses = [
 ]
 
 
-function getRandomResponse(): string {
-    return responses[Math.floor(Math.random() * responses.length)]
-}
-
 export const EIGHTBALL_COMMAND = {
     name: '8ball',
     description: 'Ask the Magic 8-Ball a question.',
-    execute: async () => {
-        const fortune = getRandomResponse()
+    run: async () => {
+        const fortune = getRandomElement(responses)
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {

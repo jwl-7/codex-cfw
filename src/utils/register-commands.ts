@@ -2,16 +2,14 @@ import { commands } from '@/commands'
 import 'dotenv/config'
 
 
-const TOKEN = process.env.DISCORD_TOKEN
-const APPLICATION_ID = process.env.DISCORD_APPLICATION_ID
-const URL = `https://discord.com/api/v10/applications/${APPLICATION_ID}/commands`
+(async function registerDiscordCommands(): Promise<void> {
+    const TOKEN = process.env.DISCORD_TOKEN
+    const APPLICATION_ID = process.env.DISCORD_APPLICATION_ID
+    const URL = `https://discord.com/api/v10/applications/${APPLICATION_ID}/commands`
 
+    if (!TOKEN) throw new Error('Missing DISCORD_TOKEN environment variable.')
+    if (!APPLICATION_ID) throw new Error('Missing DISCORD_APPLICATION_ID environment variable.')
 
-if (!TOKEN) throw new Error('Missing DISCORD_TOKEN environment variable.')
-if (!APPLICATION_ID) throw new Error('Missing DISCORD_APPLICATION_ID environment variable.')
-
-
-async function registerCommands() {
     try {
         const response = await fetch(URL, {
             method: 'PUT',
@@ -34,6 +32,4 @@ async function registerCommands() {
     } catch (error) {
         console.error('An error occurred while registering commands:', error)
     }
-}
-
-registerCommands()
+})()
