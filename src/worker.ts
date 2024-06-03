@@ -5,7 +5,7 @@ import { IServer } from '@utils/requests'
 
 
 const router = Router()
-let server = {} as IServer
+const server = {} as IServer
 
 setupServer(server, router)
 setupRouter(server, router)
