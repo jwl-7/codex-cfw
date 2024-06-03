@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "esnext",
+        "lib": ["esnext"],
+        "moduleResolution": "node",
+        "types": ["@cloudflare/workers-types"],
+        "allowSyntheticDefaultImports": true,
+        "composite": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"],
+            "@commands/*": ["src/commands/*"],
+            "@test/*": ["test/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist", "test"]
+}
