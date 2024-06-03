@@ -9,8 +9,8 @@ export interface IEnv {
 }
 
 export interface IServer {
-    verifyDiscordRequest: Function,
-    fetch: Function
+    verifyDiscordRequest: typeof verifyDiscordRequest,
+    fetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>
 }
 
 export class JsonResponse extends Response {
