@@ -50,7 +50,7 @@ export const EIGHTBALL_COMMAND = {
                         color: purple
                     },
                     fields: [{
-                        name: `*${interaction.user.name}, your fortune says...*`,
+                        name: `*${interaction.member.user.username}, your fortune says...*`,
                         value: `**${fortune}**`
                     }]
                 }]
