@@ -3,14 +3,15 @@ import { InteractionType, InteractionResponseType, verifyKey } from 'discord-int
 import { commands } from '@/commands'
 
 
-interface IEnv {
-    DISCORD_APPLICATION_ID: string
-    [key: string]: any
+export interface IEnv {
+    DISCORD_APPLICATION_ID?: string
+    DISCORD_PUBLIC_KEY?: string
+    DISCORD_TOKEN?: string
 }
 
 const router = Router()
 
-const server = {
+export const server = {
     verifyDiscordRequest: verifyDiscordRequest,
     fetch: router.fetch
 }
@@ -28,14 +29,14 @@ class JsonResponse extends Response {
     }
 }
 
-async function verifyDiscordRequest(request: IRequest, env: RequestEnv) {
+async function verifyDiscordRequest(request: IRequest, env: IEnv) {
     const signature = request.headers.get('x-signature-ed25519')
     const timestamp = request.headers.get('x-signature-timestamp')
     const body = await request.text()
     const isValidRequest =
         signature &&
         timestamp &&
-        verifyKey(body, signature, timestamp, env.DISCORD_PUBLIC_KEY)
+        verifyKey(body, signature, timestamp, env.DISCORD_PUBLIC_KEY ?? '')
 
     return isValidRequest
         ? { interaction: JSON.parse(body), isValid: true }
@@ -76,6 +77,3 @@ router.post('/', async (request, env) => {
 })
 
 router.all('*', () => new Response('Not Found.', { status: 404 }))
-
-
-export { server, IEnv }
