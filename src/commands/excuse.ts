@@ -9,7 +9,7 @@ import { excuseJargon } from '@/jargon/excuses'
 export const EXCUSE_COMMAND: ICommand = {
     name: 'excuse',
     description: 'Generate the perfect excuse.',
-    run: async (_: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
+    run: async (_ineraction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const words = [
             getRandomElement(excuseJargon.words0),
             getRandomElement(excuseJargon.words1),

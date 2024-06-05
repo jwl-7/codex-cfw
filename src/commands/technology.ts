@@ -9,7 +9,7 @@ import { techJargon } from '@jargon/technology'
 export const TECHNOLOGY_COMMAND: ICommand = {
     name: 'technology',
     description: 'Generate hollywood tech jargon.',
-    run: async (_: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
+    run: async (_interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const words = [
             getRandomElement(techJargon.words0),
             getRandomElement(techJargon.words1),

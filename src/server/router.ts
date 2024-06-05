@@ -26,6 +26,7 @@ export function setupRouter(server: IServer, router: RouterType): void {
 
             if (command) {
                 try {
+                    // @ts-expect-error: Ignoring unused variable warning
                     const response = await command.run(interaction)
                     return new JsonResponse(response)
                 } catch (error) {
