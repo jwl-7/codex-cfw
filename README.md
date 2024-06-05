@@ -1,5 +1,5 @@
 # codex-cfw
-CloudFlare Worker Discord bot
+A serverless Discord bot that utilizes the Discord Interaction API and integrates with CloudFlare Service Workers.
 
 <img src="banner.webp" width="768" height="463">
 
