@@ -25,7 +25,6 @@ export const AUDIOPHILE_COMMAND: ICommand = {
             sentence = sentence.replace(regex, words[x])
         }
 
-
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {

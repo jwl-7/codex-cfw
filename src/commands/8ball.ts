@@ -5,7 +5,7 @@ import { colors } from '@utils/colors'
 import { getRandomElement } from '@utils/random'
 
 
-const responses = [
+const RESPONSES = [
     'It is certain.',
     'It is decidedly so.',
     'Without a doubt.',
@@ -33,7 +33,7 @@ export const EIGHTBALL_COMMAND: ICommand = {
     name: '8ball',
     description: 'Ask the Magic 8-Ball a question.',
     run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
-        const fortune = getRandomElement(responses)
+        const fortune = getRandomElement(RESPONSES)
 
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,

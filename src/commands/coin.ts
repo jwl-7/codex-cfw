@@ -5,15 +5,13 @@ import { colors } from '@utils/colors'
 import { getRandomElement } from '@utils/random'
 
 
-const outcomes = ['Heads', 'Tails']
+const FACES = ['Heads', 'Tails']
 
 
 export const FLIPCOIN_COMMAND: ICommand = {
     name: 'coin',
     description: 'Flip a coin.',
     run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
-        const outcome = getRandomElement(outcomes)
-
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {
@@ -25,7 +23,7 @@ export const FLIPCOIN_COMMAND: ICommand = {
                     color: colors.blue,
                     fields: [{
                         name: `*${interaction?.member?.user?.global_name}, the coin lands...*`,
-                        value: `**${outcome}**`
+                        value: `**${getRandomElement(FACES)}**`
                     }]
                 }]
             },

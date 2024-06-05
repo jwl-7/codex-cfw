@@ -4,31 +4,30 @@ import { ICommand, ICommandResponseBody } from 'types'
 import { colors } from '@utils/colors'
 
 
-const URL = 'https://lmddgtfy.net/?q='
-
-
-export const LMDDGTFY_COMMAND: ICommand = {
-    name: 'lmddgtfy',
-    description: 'Create a LMDDGTFY link.',
+export const SPONGETEXT_COMMAND: ICommand = {
+    name: 'spongetext',
+    description: 'Convert text to sPoNgEbOb mOcKiNg tExT.',
     options: [{
-        name: 'query',
-        description: '<search query>',
+        name: 'text',
+        description: '<text>',
         type: InteractionType.MESSAGE_COMPONENT,
         required: true
     }],
     run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
-        const search = interaction.data.options?.[0]?.value
-        const link = `${URL}${encodeURIComponent(search)}`
+        const inputText = interaction.data.options?.[0]?.value
+        let spongeText = ''
+
+        for (let i = 0; i < inputText.length; i++) {
+            const char = inputText[i]
+            spongeText += (i % 2 === 0) ? char.toLowerCase() : char.toUpperCase()
+        }
 
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {
                 embeds: [{
                     color: colors.blue,
-                    fields: [{
-                        name: 'Let Me DuckDuckGo That For You',
-                        value: link
-                    }]
+                    description: spongeText
                 }]
             },
         }
