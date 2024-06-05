@@ -29,6 +29,7 @@
         "@types/sinon": "^17.0.3",
         "c8": "^9.0.0",
         "chai": "^5.0.0",
+        "discord-api-types": "^0.37.87",
         "dotenv": "^16.4.5",
         "globals": "^15.3.0",
         "mocha": "^10.4.0",

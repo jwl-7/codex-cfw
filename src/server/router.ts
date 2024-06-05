@@ -1,7 +1,8 @@
 import { RouterType } from 'itty-router'
 import { InteractionType, InteractionResponseType } from 'discord-interactions'
 import { commands } from '@/commands'
-import { IServer, JsonResponse } from '@/utils/requests'
+import { JsonResponse } from '@utils/requests'
+import { IServer } from 'types'
 
 
 export function setupRouter(server: IServer, router: RouterType): void {
@@ -25,7 +26,7 @@ export function setupRouter(server: IServer, router: RouterType): void {
 
             if (command) {
                 try {
-                    const response = await command.run()
+                    const response = await command.run(interaction)
                     return new JsonResponse(response)
                 } catch (error) {
                     console.error('Error running command:', error)

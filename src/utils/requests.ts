@@ -1,31 +1,28 @@
-import { IRequest, RequestLike } from 'itty-router'
+import { APIInteraction } from 'discord-api-types/v10';
+import { IRequest } from 'itty-router'
 import { verifyKey } from 'discord-interactions'
+import { IEnv } from 'types'
 
 
-export interface IEnv {
-    DISCORD_APPLICATION_ID?: string
-    DISCORD_PUBLIC_KEY?: string
-    DISCORD_TOKEN?: string
-}
-
-export interface IServer {
-    verifyDiscordRequest: typeof verifyDiscordRequest,
-    fetch: <A>(request: RequestLike, ...extra: A[]) => Promise<Response>
-}
-
-export class JsonResponse extends Response {
-    constructor(body: object, init?: ResponseInit) {
-        const jsonBody = JSON.stringify(body)
+export class JsonResponse<T> extends Response {
+    constructor(body: T, init?: ResponseInit) {
+        const jsonBody = JSON.stringify(body);
         init = init || {
             headers: {
                 'content-type': 'application/json;charset=UTF-8',
             },
-        }
-        super(jsonBody, init)
+        };
+        super(jsonBody, init);
     }
 }
 
-export async function verifyDiscordRequest(request: IRequest, env: IEnv) {
+export async function verifyDiscordRequest(
+    request: IRequest,
+    env: IEnv
+): Promise<{
+    interaction?: APIInteraction
+    isValid: boolean
+}> {
     const signature = request.headers.get('x-signature-ed25519')
     const timestamp = request.headers.get('x-signature-timestamp')
     const body = await request.text()

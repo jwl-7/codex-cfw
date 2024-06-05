@@ -1,4 +1,4 @@
-import { EIGHTBALL_COMMAND } from '@commands/8ball'
+import { EIGHTBALL_COMMAND } from './8ball'
 
 
 export const commands = {

@@ -13,12 +13,11 @@
         "baseUrl": "./",
         "paths": {
             "@/*": ["src/*"],
-            "@commands/*": ["src/commands/*"],
+            "@utils/*": ["src/utils/*"],
             "@server/*": ["src/server/*"],
-            "@test/*": ["test/*"],
-            "@utils/*": ["src/utils/*"]
+            "@commands/*": ["src/commands/*"],
         }
     },
-    "include": ["src", "test"],
+    "include": ["src", "test", "types"],
     "exclude": ["node_modules", "dist"]
 }

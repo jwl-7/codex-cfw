@@ -1,5 +1,6 @@
 import { RouterType } from 'itty-router'
-import { IServer, verifyDiscordRequest } from '@/utils/requests'
+import { verifyDiscordRequest } from '@utils/requests'
+import { IServer } from 'types'
 
 
 export function setupServer(server: IServer, router: RouterType): void {

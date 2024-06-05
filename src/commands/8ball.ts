@@ -1,5 +1,8 @@
-import { InteractionType, InteractionResponseType } from 'discord-interactions'
-import { getRandomElement } from '@/utils/utils'
+import { APIApplicationCommandInteraction } from 'discord-api-types/v10'
+import { InteractionResponseType } from 'discord-interactions'
+import { colors } from '@utils/colors'
+import { getRandomElement } from '@utils/utils'
+import { ICommand, ICommandResponseBody } from 'types'
 
 
 const responses = [
@@ -26,31 +29,23 @@ const responses = [
 ]
 
 
-export const EIGHTBALL_COMMAND = {
+export const EIGHTBALL_COMMAND: ICommand = {
     name: '8ball',
     description: 'Ask the Magic 8-Ball a question.',
-    run: async (interaction: InteractionType.APPLICATION_COMMAND) => {
+    run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const fortune = getRandomElement(responses)
-        const purple = 10181046
-        // return {
-        //     type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        //     data: {
-        //         content: `🎱 **Magic 8-Ball says:** ${fortune}`,
-        //     },
-        // }
+
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {
-                content: `🎱 **Magic 8-Ball says:** ${fortune}`,
                 embeds: [{
-                    title: 'shitty fortune',
                     author: {
                         name: 'Magic 8-ball',
-                        icon_url: 'https://i.imgur.com/XhNqADi.png',
-                        color: purple
+                        icon_url: 'https://i.imgur.com/XhNqADi.png'
                     },
+                    color: colors.purple,
                     fields: [{
-                        name: `*${interaction.member.user.username}, your fortune says...*`,
+                        name: `*${interaction?.member?.user?.username}, your fortune says...*`,
                         value: `**${fortune}**`
                     }]
                 }]
