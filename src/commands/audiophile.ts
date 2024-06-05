@@ -9,7 +9,7 @@ import { audioJargon } from '@/jargon/audio'
 export const AUDIOPHILE_COMMAND: ICommand = {
     name: 'audiophile',
     description: 'Generate hipster audio jargon.',
-    run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
+    run: async (_interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const words = [
             getRandomElement(audioJargon.words0),
             getRandomElement(audioJargon.words1),

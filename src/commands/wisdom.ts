@@ -9,7 +9,7 @@ import { chopraJargon } from '@/jargon/chopra'
 export const WISDOM_COMMAND: ICommand = {
     name: 'wisdom',
     description: 'Generate Deepak Chopra quote.',
-    run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
+    run: async (_interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const part0 = getRandomElement(chopraJargon.words0)
         const part1 = getRandomElement(chopraJargon.words1)
         const part2 = getRandomElement(chopraJargon.words2)

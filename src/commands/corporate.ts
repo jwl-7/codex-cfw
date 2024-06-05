@@ -9,7 +9,7 @@ import { corporateJargon } from '@/jargon/corporate'
 export const CORPORATE_COMMAND: ICommand = {
     name: 'corporate',
     description: 'Generate corporate bulls**t statement.',
-    run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
+    run: async (_interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const adverb = getRandomElement(corporateJargon.adverbs)
         const verb = getRandomElement(corporateJargon.verbs)
         const adjective = getRandomElement(corporateJargon.adjectives)

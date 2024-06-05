@@ -9,7 +9,7 @@ import { educationJargon } from '@/jargon/education'
 export const EDUCATION_COMMAND: ICommand = {
     name: 'education',
     description: 'Generate educational nonsense.',
-    run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
+    run: async (_interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const verb = getRandomElement(educationJargon.verbs)
         const adjective = getRandomElement(educationJargon.adjectives)
         const noun = getRandomElement(educationJargon.nouns)
