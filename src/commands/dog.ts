@@ -37,7 +37,7 @@ async function getDog(): Promise<string> {
         if (!response.ok) throw new Error(ERROR_MESSAGE)
         const data = await response.json()
         return data.message
-    } catch (error) {
+    } catch (_error) {
         throw new Error(ERROR_MESSAGEQ)
     }
 }

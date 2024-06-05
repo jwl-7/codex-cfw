@@ -35,7 +35,7 @@ async function getJoke(): Promise<string> {
         if (!response.ok) return ERROR_MESSAGE
         const data = await response.json()
         return data.joke
-    } catch (error) {
+    } catch (_error) {
         return ERROR_MESSAGE
     }
 }
