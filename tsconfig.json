@@ -13,9 +13,10 @@
         "baseUrl": "./",
         "paths": {
             "@/*": ["src/*"],
+            "@commands/*": ["src/commands/*"],
+            "@jargon/*": ["src/jargon/*"],
             "@utils/*": ["src/utils/*"],
             "@server/*": ["src/server/*"],
-            "@commands/*": ["src/commands/*"],
         }
     },
     "include": ["src", "test", "types"],

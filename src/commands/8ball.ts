@@ -1,8 +1,8 @@
 import { APIApplicationCommandInteraction } from 'discord-api-types/v10'
 import { InteractionResponseType } from 'discord-interactions'
-import { colors } from '@utils/colors'
-import { getRandomElement } from '@utils/utils'
 import { ICommand, ICommandResponseBody } from 'types'
+import { colors } from '@utils/colors'
+import { getRandomElement } from '@utils/random'
 
 
 const responses = [
@@ -45,7 +45,7 @@ export const EIGHTBALL_COMMAND: ICommand = {
                     },
                     color: colors.purple,
                     fields: [{
-                        name: `*${interaction?.member?.user?.username}, your fortune says...*`,
+                        name: `*${interaction?.member?.user?.global_name}, your fortune says...*`,
                         value: `**${fortune}**`
                     }]
                 }]
