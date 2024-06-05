@@ -12,6 +12,6 @@ export default [
             "@typescript-eslint/no-unused-vars": "off"
         }
     },
-    pluginJs.configs.recommended,
-    tseslint.configs.recommended,
+    ...pluginJs.configs.recommended,
+    ...tseslint.configs.recommended,
 ]
