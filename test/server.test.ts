@@ -8,7 +8,7 @@ import server from '@/worker'
 
 describe('Server', () => {
     const REQUEST_URL = 'http://test.url/'
-    const REQUEST_ENV: IEnv = { DISCORD_APPLICATION_ID: '123456789' }
+    const REQUEST_ENV = { DISCORD_APPLICATION_ID: '123456789' }
 
     describe('GET /', () => {
         it('should return a greeting message with the Discord application ID', async () => {

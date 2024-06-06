@@ -22,11 +22,11 @@ export const SLOTS_COMMAND: ICommand = {
             getRandomElement(EMOJIS)
         ]
         const spin = `|\t:${slots[0]}:\t|\t:${slots[1]}:\t|\t:${slots[2]}:\t|\t:${slots[3]}:\t|`
-        const isJackpot = (
+        const isJackpot =
             slots[0] == slots[1] && slots[2] == slots[3] ||
             slots[0] == slots[2] && slots[1] == slots[3] ||
             slots[0] == slots[3] && slots[1] == slots[2]
-        )
+
 
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
