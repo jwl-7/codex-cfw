@@ -19,7 +19,7 @@ export const UDEFINE_COMMAND: ICommand = {
         const wordData = inputText
             ? await getWordData(inputText)
             : await getRandomWordData()
-        let embed = {
+        const embed = {
             color: colors.orange,
             author: {
                 name: 'Urban Dictionary',

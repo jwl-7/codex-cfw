@@ -5,7 +5,6 @@ import { colors } from '@utils/colors'
 
 
 const URL = 'https://dog.ceo/api/breeds/image/random'
-const ERROR_MESSAGE = 'Error fetching doggo.'
 
 
 export const DOG_COMMAND: ICommand = {

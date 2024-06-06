@@ -18,7 +18,7 @@ export const DEFINE_COMMAND: ICommand = {
         const inputText = interaction.data.options?.[0]?.value
         const wordData = await getWordData(inputText)
         const link = `${constants.MERRIAM_WEBSTER_URL}${encodeURIComponent(inputText)}`
-        let embed = {
+        const embed = {
             color: colors.blue,
             author: {
                 name: 'Merriam-Webster Dictionary',
