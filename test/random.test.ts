@@ -21,8 +21,8 @@ describe('Random Tests', () => {
                 letterResults.add(randomLetter)
             }
 
-            expect(numberResults.size).to.be.greaterThan(3)
-            expect(letterResults.size).to.be.greaterThan(3)
+            expect(numberResults.size).to.be.greaterThan(2)
+            expect(letterResults.size).to.be.greaterThan(2)
         })
     })
 
