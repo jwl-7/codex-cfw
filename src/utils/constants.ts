@@ -1,5 +1,6 @@
 export const constants = {
     CS_JOKE_API_URL: 'https://official-joke-api.appspot.com/jokes/programming/random',
+    DISCORD_API_URL: 'https://discord.com/api/v10/',
     DOG_API_URL: 'https://dog.ceo/api/breeds/image/random',
     EIGHTBALL_ICON_URL: 'https://i.imgur.com/XhNqADi.png',
     FLIPCOIN_ICON_URL: 'https://i.imgur.com/jQX05l8.png',

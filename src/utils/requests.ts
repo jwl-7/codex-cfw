@@ -1,4 +1,4 @@
-import { APIInteraction } from 'discord-api-types/v10';
+import { APIInteraction } from 'discord-api-types/v10'
 import { IRequest } from 'itty-router'
 import { verifyKey } from 'discord-interactions'
 import { IEnv } from 'types'
@@ -6,13 +6,13 @@ import { IEnv } from 'types'
 
 export class JsonResponse<T> extends Response {
     constructor(body: T, init?: ResponseInit) {
-        const jsonBody = JSON.stringify(body);
+        const jsonBody = JSON.stringify(body)
         init = init || {
             headers: {
                 'content-type': 'application/json;charset=UTF-8',
             },
-        };
-        super(jsonBody, init);
+        }
+        super(jsonBody, init)
     }
 }
 
@@ -34,4 +34,14 @@ export async function verifyDiscordRequest(
     return isValidRequest
         ? { interaction: JSON.parse(body), isValid: true }
         : { isValid: false }
+}
+
+export async function pingAPI(url: string): Promise<boolean> {
+    try {
+        const response = await fetch(url)
+        return response.ok
+    } catch (error) {
+        console.error(`Error pinging API: ${error}`)
+        return false
+    }
 }
