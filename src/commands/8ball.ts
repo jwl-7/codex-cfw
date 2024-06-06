@@ -3,6 +3,7 @@ import { InteractionResponseType } from 'discord-interactions'
 import { ICommand, ICommandResponseBody } from 'types'
 import { colors } from '@utils/colors'
 import { getRandomElement } from '@utils/random'
+import { constants } from '@/utils/constants'
 
 
 const RESPONSES = [
@@ -41,7 +42,7 @@ export const EIGHTBALL_COMMAND: ICommand = {
                 embeds: [{
                     author: {
                         name: 'Magic 8-ball',
-                        icon_url: 'https://i.imgur.com/XhNqADi.png'
+                        icon_url: constants.EIGHTBALL_ICON_URL
                     },
                     color: colors.purple,
                     fields: [{

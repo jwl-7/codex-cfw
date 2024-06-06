@@ -1,8 +1,8 @@
 import { RouterType } from 'itty-router'
 import { InteractionType, InteractionResponseType } from 'discord-interactions'
+import { IServer } from 'types'
 import { commands } from '@/commands'
 import { JsonResponse } from '@utils/requests'
-import { IServer } from 'types'
 
 
 export function setupRouter(server: IServer, router: RouterType): void {
@@ -26,7 +26,6 @@ export function setupRouter(server: IServer, router: RouterType): void {
 
             if (command) {
                 try {
-                    // @ts-expect-error: Ignoring unused variable warning
                     const response = await command.run(interaction)
                     return new JsonResponse(response)
                 } catch (error) {

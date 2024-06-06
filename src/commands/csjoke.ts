@@ -2,10 +2,7 @@ import { APIApplicationCommandInteraction } from 'discord-api-types/v10'
 import { InteractionResponseType } from 'discord-interactions'
 import { ICommand, ICommandResponseBody } from 'types'
 import { colors } from '@utils/colors'
-
-
-const URL = 'https://official-joke-api.appspot.com/jokes/programming/random'
-const ERROR_MESSAGE = 'Error fetching joke.'
+import { constants } from '@/utils/constants'
 
 
 export const CSJOKE_COMMAND: ICommand = {
@@ -26,16 +23,20 @@ export const CSJOKE_COMMAND: ICommand = {
 
 async function getJoke(): Promise<string> {
     try {
-        const response = await fetch(URL, {
+        const response = await fetch(constants.CS_JOKE_API_URL, {
             headers: {
+                method: 'GET',
                 'Accept': 'application/json'
             }
         })
 
-        if (!response.ok) return ERROR_MESSAGE
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`)
+        }
+
         const data = await response.json()
         return `${data[0].setup}\n${data[0].punchline}`
-    } catch (_error) {
-        return ERROR_MESSAGE
+    } catch (error) {
+        throw new Error(`Failed to fetch joke: ${error}`)
     }
 }

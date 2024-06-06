@@ -29,15 +29,19 @@ export const DOG_COMMAND: ICommand = {
 async function getDog(): Promise<string> {
     try {
         const response = await fetch(URL, {
+            method: 'GET',
             headers: {
                 'Accept': 'application/json'
             }
         })
 
-        if (!response.ok) throw new Error(ERROR_MESSAGE)
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`)
+        }
+
         const data = await response.json()
         return data.message
-    } catch (_error) {
-        throw new Error(ERROR_MESSAGEQ)
+    } catch (error) {
+        throw new Error(`Failed to fetch doggo: ${error}`)
     }
 }

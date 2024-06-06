@@ -3,19 +3,19 @@ import 'dotenv/config'
 
 
 (async function registerDiscordCommands(): Promise<void> {
-    const TOKEN = process.env.DISCORD_TOKEN
-    const APPLICATION_ID = process.env.DISCORD_APPLICATION_ID
-    const URL = `https://discord.com/api/v10/applications/${APPLICATION_ID}/commands`
+    const DISCORD_TOKEN = process.env.DISCORD_TOKEN
+    const DISCORD_APPLICATION_ID = process.env.DISCORD_APPLICATION_ID
+    const DISCORD_API_URL = `https://discord.com/api/v10/applications/${DISCORD_APPLICATION_ID}/commands`
 
-    if (!TOKEN) throw new Error('Missing DISCORD_TOKEN environment variable.')
-    if (!APPLICATION_ID) throw new Error('Missing DISCORD_APPLICATION_ID environment variable.')
+    if (!DISCORD_TOKEN) throw new Error('Missing DISCORD_TOKEN environment variable.')
+    if (!DISCORD_APPLICATION_ID) throw new Error('Missing DISCORD_APPLICATION_ID environment variable.')
 
     try {
-        const response = await fetch(URL, {
+        const response = await fetch(DISCORD_API_URL, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bot ${TOKEN}`,
+                Authorization: `Bot ${DISCORD_TOKEN}`,
             },
             body: JSON.stringify(Object.values(commands)),
         })

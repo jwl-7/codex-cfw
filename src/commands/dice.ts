@@ -1,8 +1,9 @@
 import { APIApplicationCommandInteraction } from 'discord-api-types/v10'
 import { InteractionResponseType } from 'discord-interactions'
+import { ICommand, ICommandResponseBody } from 'types'
 import { colors } from '@utils/colors'
 import { getRandomDiceRoll } from '@utils/random'
-import { ICommand, ICommandResponseBody } from 'types'
+import { constants } from '@/utils/constants'
 
 
 export const ROLLDICE_COMMAND: ICommand = {
@@ -19,7 +20,7 @@ export const ROLLDICE_COMMAND: ICommand = {
                 embeds: [{
                     author: {
                         name: 'Dice Roller',
-                        icon_url: 'https://i.imgur.com/rkfXx3q.png'
+                        icon_url: constants.ROLLDICE_ICON_URL
                     },
                     color: colors.blue,
                     fields: [{

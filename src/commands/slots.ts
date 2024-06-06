@@ -3,6 +3,7 @@ import { InteractionResponseType } from 'discord-interactions'
 import { ICommand, ICommandResponseBody } from 'types'
 import { colors } from '@utils/colors'
 import { getRandomElement } from '@utils/random'
+import { constants } from '@/utils/constants'
 
 
 const EMOJIS = ['apple', 'cherries', 'doughnut', 'grapes', 'taco', 'watermelon']
@@ -33,7 +34,7 @@ export const SLOTS_COMMAND: ICommand = {
                 embeds: [{
                     author: {
                         name: 'Slot Machine',
-                        icon_url: 'https://i.imgur.com/rkfXx3q.png'
+                        icon_url: constants.SLOTS_ICON_URL
                     },
                     color: colors.blue,
                     fields: [{

@@ -2,9 +2,7 @@ import { APIApplicationCommandInteraction } from 'discord-api-types/v10'
 import { InteractionResponseType, InteractionType } from 'discord-interactions'
 import { ICommand, ICommandResponseBody } from 'types'
 import { colors } from '@utils/colors'
-
-
-const URL = 'https://lmddgtfy.net/?q='
+import { constants } from '@/utils/constants'
 
 
 export const LMDDGTFY_COMMAND: ICommand = {
@@ -18,7 +16,7 @@ export const LMDDGTFY_COMMAND: ICommand = {
     }],
     run: async (interaction: APIApplicationCommandInteraction): Promise<ICommandResponseBody> => {
         const search = interaction.data.options?.[0]?.value
-        const link = `${URL}${encodeURIComponent(search)}`
+        const link = `${constants.LMDDGTFY_URL}${encodeURIComponent(search)}`
 
         return {
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
