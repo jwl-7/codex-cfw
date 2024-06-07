@@ -2,9 +2,7 @@ import { APIApplicationCommandInteraction } from 'discord-api-types/v10'
 import { InteractionResponseType } from 'discord-interactions'
 import { ICommand, ICommandResponseBody } from 'types'
 import { colors } from '@utils/colors'
-
-
-const URL = 'https://dog.ceo/api/breeds/image/random'
+import { constants } from '@/utils/constants'
 
 
 export const DOG_COMMAND: ICommand = {
@@ -27,7 +25,7 @@ export const DOG_COMMAND: ICommand = {
 
 async function getDog(): Promise<string> {
     try {
-        const response = await fetch(URL, {
+        const response = await fetch(constants.DOG_API_URL, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json'

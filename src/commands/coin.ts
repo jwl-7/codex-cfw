@@ -8,7 +8,6 @@ import { constants } from '@/utils/constants'
 
 const FACES = ['Heads', 'Tails']
 
-
 export const FLIPCOIN_COMMAND: ICommand = {
     name: 'coin',
     description: 'Flip a coin.',

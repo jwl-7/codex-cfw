@@ -10,7 +10,6 @@ const EMOJIS = ['apple', 'cherries', 'doughnut', 'grapes', 'taco', 'watermelon']
 const JACKPOT = '$$$ !!! JACKPOT !!! $$$'
 const JACKSHIT = '(◕‿◕)╭∩╮ YOU GET NOTHING !!!'
 
-
 export const SLOTS_COMMAND: ICommand = {
     name: 'slots',
     description: 'Play fruit emojis slot machine.',

@@ -8,7 +8,6 @@ const CHARS = "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`a
 const CHARS_ALT = "¡#$%⅋,)(*+'-˙/0ƖᄅƐㄣϛ9ㄥ86:;>=<¿@∀qƆpƎℲפHIſʞ˥WNOԀQɹS┴∩ΛMX⅄Z]\\\\[^‾,ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz}|{"
 const FLIPPED = Object.fromEntries(CHARS.split('').map((char, i) => [char, CHARS_ALT[i]]))
 
-
 export const FLIPTEXT_COMMAND: ICommand = {
     name: 'fliptext',
     description: 'Flip text upside down/backwards.',

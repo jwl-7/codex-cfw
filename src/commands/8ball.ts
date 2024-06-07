@@ -29,7 +29,6 @@ const RESPONSES = [
     'Very doubtful.'
 ]
 
-
 export const EIGHTBALL_COMMAND: ICommand = {
     name: '8ball',
     description: 'Ask the Magic 8-Ball a question.',
